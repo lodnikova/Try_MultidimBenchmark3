@@ -90,7 +90,7 @@ public class Runner01 {
     }
      
     public static void writing4() {
-        String title = "Writing array3 (NDArray of Vectorz)";
+        String title = "Writing array4 (NDArray of Vectorz)";
         long start, end;
         
         System.out.println(title);
