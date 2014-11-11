@@ -6,8 +6,9 @@ public class Runner01 {
 
     static private final int numattempts = 3;
     
-    static private final int[] dims = {200, 100, 20, 150};
-    static private double[] data;
+    //static private final int[] dims = {200, 100, 20, 150};
+    static private final int[] dims = {300, 100, 20, 200};
+    static private Double[] data;
 
     static private Array1 array1;
     static private Array2 array2;
@@ -127,7 +128,9 @@ public class Runner01 {
                 for (int j = 0; j < dims[1]; ++j) {
                     for (int k = 0; k < dims[2]; ++k) {
                         for (int l = 0; l < dims[3]; ++l) {
-                            assert (data[ii] == array1.get(i, j, k, l));
+                            if (data[ii] != array1.get(i, j, k, l)) {
+                            	throw new AssertionError();
+                            }
                             ii++;
                         }
                     }
@@ -152,7 +155,9 @@ public class Runner01 {
                 for (int j = 0; j < dims[1]; ++j) {
                     for (int k = 0; k < dims[2]; ++k) {
                         for (int l = 0; l < dims[3]; ++l) {
-                            assert (data[ii] == array2.get(i, j, k, l));
+                            if (data[ii] != array2.get(i, j, k, l)) {
+                            	throw new AssertionError();
+                            }
                             ii++;
                         }
                     }
@@ -177,7 +182,9 @@ public class Runner01 {
                 for (int j = 0; j < dims[1]; ++j) {
                     for (int k = 0; k < dims[2]; ++k) {
                         for (int l = 0; l < dims[3]; ++l) {
-                            assert (array3[i][j][k][l] == data[ii]);
+                            if (array3[i][j][k][l] != data[ii]) {
+                            	throw new AssertionError();
+                            }
                             ii++;
                         }
                     }
@@ -202,7 +209,9 @@ public class Runner01 {
                 for (int j = 0; j < dims[1]; ++j) {
                     for (int k = 0; k < dims[2]; ++k) {
                         for (int l = 0; l < dims[3]; ++l) {
-                            assert (array4.get(i, j, k, l) == data[ii]);
+                            if (array4.get(i, j, k, l) != data[ii]) {
+                            	throw new AssertionError();
+                            }
                             ii++;
                         }
                     }
@@ -228,7 +237,7 @@ public class Runner01 {
             size *= dims[i];
         }
 
-        data = new double[size];
+        data = new Double[size];
         for (int i = 0; i < data.length; ++i) {
             data[i] = Math.random();
         }
